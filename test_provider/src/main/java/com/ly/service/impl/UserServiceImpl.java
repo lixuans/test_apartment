@@ -33,9 +33,21 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
-//    public int addUser(User user) {
-//        return 0;
-//    }
+    public Response addUser(User user) {
+        Response response=new Response();
+        try{
+            User user1= this.userDao.addUser(user);
+            System.out.println(user.getName());
+            response.setData(user);
+            response.setSuccess(true);
+        }catch (Exception e){
+            e.printStackTrace();
+            response.setSuccess(false);
+            response.setErrorCode("0001");
+            response.setErrorMsg("添加用户发生异常");
+        }
+        return response;
+    }
 //
 //    public int deleteUser(String name) {
 //        return 0;
