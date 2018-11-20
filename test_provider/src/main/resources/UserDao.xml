@@ -4,4 +4,5 @@
     <select id="getUserOne" parameterType="String" resultType="User">
         select id as id,uname as name,usex as sex from user_table where uname=#{name}
     </select>
+    <insert id="addUser" parameterType="User"></insert>
 </mapper>
